@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="fixed col-sm-2 col-xs-2">
+      <div class="fixed col-lg-3 col-sm-2 col-xs-2">
         <Navbar />
       </div>
-      <div class=" col-sm-10">
+      <div class="col-lg-9 col-sm-10">
         <Nuxt />
       </div>
     </div>

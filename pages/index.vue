@@ -1,6 +1,6 @@
 <template>
   <div class="home-box">
-    <TimeLine1>
+    <TimeLine1 class="middle">
       <template v-slot:topTitle>
         <TopTitle>
           <div class="top">
@@ -68,6 +68,8 @@ export default {
 .home-box {
   display: flex;
   justify-content: center;
+  overflow-y: initial !important;
+  overflow-x: hidden;
 
   .top {
     width: 100%;
@@ -94,6 +96,12 @@ export default {
         background-color: var(--item-hover);
       }
     }
+  }
+  .middle {
+    overflow-y: auto;
+  }
+  .right {
+    overflow-y: auto;
   }
 }
 

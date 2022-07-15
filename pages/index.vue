@@ -40,7 +40,7 @@
       </template>
 
       <template v-slot:tweets>
-        <Tweets />
+        <Tweets :tweetData="tweetData" />
       </template>
     </TimeLine1>
     <div class="right">
@@ -60,7 +60,109 @@ export default {
     name: "IndexPage",
     // components: { Navbar }
     layout: "dashboardWrapper",
-    components: { Trends, NewTweet, TimeLine1, TopTitle, Tweets }
+    components: { Trends, NewTweet, TimeLine1, TopTitle, Tweets },
+    data () {
+      return {
+        tweetData: [
+          {
+            name: "Babafrayo",
+            username: "@babafray0",
+            badge: true,
+            time: "Jan 6",
+            pp_route: require('../assets/img/person2-pp.jpg'),
+            image_route: false,
+            text: "I go by the name of Babafrayo.",
+            comment: "67",
+            retweet: "138",
+            like: "8.2K",
+          },
+          {
+            name: "Tobi Badejo",
+            username: "@teebazz",
+            badge: false,
+            time: "Aug 15",
+            pp_route: require('../assets/img/person4-pp.jpg'),
+            image_route: require("../assets/img/image.jpg"),
+            text: "I remember the first time I played the bass guitar. I played it.",
+            comment: "2",
+            retweet: "148",
+            like: "1.6K",
+          },
+          {
+            name: "Drew",
+            username: "@the.7th.kind",
+            badge: true,
+            time: "Nov 1",
+            pp_route: require('../assets/img/person5-pp.jpg'),
+            image_route: require("../assets/img/image3.jpg"),
+            text: "Friends turned family.",
+            comment: "1.1K",
+            retweet: "820",
+            like: "32.2K",
+          },
+          {
+            name: "Drew",
+            username: "@the.7th.kind",
+            badge: true,
+            time: "Nov 4",
+            pp_route: require('../assets/img/person5-pp.jpg'),
+            image_route: false,
+            text: "Frank Ocean is the greatest.",
+            comment: "1.1K",
+            retweet: "820",
+            like: "32.2K",
+          },
+          {
+            name: "Babafrayo",
+            username: "@babafray0",
+            badge: true,
+            time: "Jul 10",
+            pp_route: require('../assets/img/person2-pp.jpg'),
+            image_route: require("../assets/img/image2.jpg"),
+            text: "I just came back from eid with my real gees.",
+            comment: "67",
+            retweet: "138",
+            like: "8.2K",
+          },
+          {
+            name: "Tuunji the all ends dev",
+            username: "@tuunji",
+            badge: true,
+            time: "Jan 30",
+            pp_route: require('../assets/img/person1-pp.jpg'),
+            image_route: require("../assets/img/person1-pp.jpg"),
+            text: "#newprofilepic",
+            comment: "67",
+            retweet: "138",
+            like: "50B",
+          },
+          {
+            name: "Drew",
+            username: "@the.7th.kind",
+            badge: true,
+            time: "May 4",
+            pp_route: require('../assets/img/person5-pp.jpg'),
+            image_route: require("../assets/img/image4.jpg"),
+            text: "Grind don't stop.",
+            comment: "1.1K",
+            retweet: "820",
+            like: "32.2K",
+          },
+          {
+            name: "Amazon Angel",
+            username: "@inem",
+            badge: true,
+            time: "Feb 4",
+            pp_route: require('../assets/img/person3-pp.jpg'),
+            image_route: require("../assets/img/image5.jpg"),
+            text: "I too fine.",
+            comment: "1.1K",
+            retweet: "820",
+            like: "32.2K",
+          },
+        ],
+      }
+    }
 }
 </script>
 

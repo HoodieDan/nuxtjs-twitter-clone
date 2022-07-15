@@ -45,3 +45,9 @@ img {
 span {
   color: var(--item-text-color);
 }
+
+.btn {
+  background-color: #d9d9d9;
+  border-radius: 32px;
+  font-weight: 600;
+}

@@ -4,7 +4,7 @@
       <div class="tweets" v-for="(tweet, index) in tweetData" :key="index" @click="selectTweet(tweet)">
         <div class="tweet-box">
           <div class="left">
-            <div class="pp">
+            <div class="pp circular">
               <img :src="tweet.pp_route" alt="" />
             </div>
           </div>
@@ -431,5 +431,25 @@ export default {
     padding-right: 0;
   }
 }
-
+.circular {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.circular img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 </style>

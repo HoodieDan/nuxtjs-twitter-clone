@@ -32,7 +32,7 @@
         </div>
         <div class="items">
           <nuxt-link class="nuxt" to="/">
-            <div class="item" :class="{ 'active': currentRoute === '/' }">
+            <div class="item" :class="{ 'active': currentRoute === '/' }" @click="closeTweet()">
               <svg
                 width="30px"
                 height="30px"

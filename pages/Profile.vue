@@ -24,7 +24,7 @@
             <div class="edit">
                 <div class="circular">
                     <!-- profile picture  -->
-                    <img src="../assets/img/person5-pp.jpg" alt="profile image">
+                    <img src="../assets/img/pp.jpg" alt="profile image">
                 </div>
                 <div class="edit-profile">
                     <!-- Edit profile  -->
@@ -191,6 +191,7 @@ export default {
       right: 0;
       .top-title {
         font-size: 17px;
+        margin-left: 0;
       }
     }
   }
@@ -219,6 +220,7 @@ export default {
         .circular {
             width: 150px;
             height: 150px;
+            background-color: #000000;
             border: 5px #000000 solid;
             border-radius: 50%;
             position: relative;
@@ -311,5 +313,14 @@ export default {
 
 .active-link {
     border-bottom: var(--blue) 5px solid;
+}
+@media (max-width: 415px) {
+  .top{
+    position: relative;
+    .back {
+      position: relative;
+      right: 50px;
+    }
+  }
 }
 </style>

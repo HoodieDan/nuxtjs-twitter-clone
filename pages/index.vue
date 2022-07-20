@@ -7,8 +7,8 @@
             <div class="back" v-show="openTweet" @click="closeTweet">
               <i class="fa-solid fa-arrow-left"></i>
             </div>
-            <span v-show="openTweet === false" class="top-title">Latest Tweets</span>
-            <span v-show="openTweet" class="top-title">Tweet</span>
+            <span v-show="openTweet === false" class="top-title">Home</span>
+            <span v-show="openTweet" class="top-title tweet">Tweet</span>
           <div class="svg-top">
               <svg
                 width="20px"
@@ -191,6 +191,10 @@ export default {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    .tweet {
+      position: relative;
+      right: 100px;
+    }
     .top-title {
       font-size: 19px;
       line-height: 24px;
@@ -237,6 +241,11 @@ export default {
       margin-left: auto;
       position: absolute;
       right: 0;
+      position: relative;
+      .back {
+        position: relative;
+        right: 50px;
+      }
       .top-title {
         font-size: 17px;
       }

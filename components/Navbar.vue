@@ -262,34 +262,36 @@
           <span class="btn-title">Tweet</span>
         </button>
         <div class="profile">
-          <div class="profiles">
-            <div class="pp">
-              <img src="../assets/img/pp.jpg" alt="" />
+          <nuxt-link class="nuxt" to="/Profile"  :class="{ 'no-show-sm': openTweet || currentRoute !== '/' }">
+            <div class="profiles">
+              <div class="pp">
+                <img src="../assets/img/pp.jpg" alt="" />
+              </div>
+              <div class="info">
+                <span class="name">Drew</span>
+                <span class="username">@the.7th.kind</span>
+              </div>
+              <div class="more">
+                <svg
+                  width="30px"
+                  height="30px"
+                  fill="#d9d9d9"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="
+                    r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi
+                  "
+                >
+                  <g>
+                    <circle cx="5" cy="12" r="2" />
+                    <circle cx="12" cy="12" r="2" />
+                    <circle cx="19" cy="12" r="2" />
+                  </g>
+                </svg>
+              </div>
             </div>
-            <div class="info">
-              <span class="name">Osemu</span>
-              <span class="username">@osemudev</span>
-            </div>
-            <div class="more">
-              <svg
-                width="30px"
-                height="30px"
-                fill="#d9d9d9"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                class="
-                  r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi
-                "
-              >
-                <g>
-                  <circle cx="5" cy="12" r="2" />
-                  <circle cx="12" cy="12" r="2" />
-                  <circle cx="19" cy="12" r="2" />
-                </g>
-              </svg>
-            </div>
-          </div>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -297,12 +299,13 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Navbar',
   computed: {
+    ...mapState(['openTweet']),
     currentRoute() {
       return this.$route.path
     }
@@ -317,6 +320,9 @@ export default {
 .active span {
   color: var(--active-color);
   font-weight: 700;
+}
+.no-show {
+  display: none;
 }
 
 .navbar-box {
@@ -600,6 +606,9 @@ export default {
       width: 32px;
       height: 32px;
     }
+  }
+  .no-show-sm {
+    display: none;
   }
 }
 </style>

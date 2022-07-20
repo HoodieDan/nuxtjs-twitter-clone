@@ -2,10 +2,14 @@
   <div class="home-box">
     <TimeLine1 class="middle">
       <template v-slot:topTitle>
-        <TopTitle>
+        <TopTitle class="top-title">
           <div class="top">
-            <span class="top-title">Latest Tweets</span>
-            <div class="svg-top">
+            <div class="back" v-show="openTweet" @click="closeTweet">
+              <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <span v-show="openTweet === false" class="top-title">Latest Tweets</span>
+            <span v-show="openTweet" class="top-title">Tweet</span>
+          <div class="svg-top">
               <svg
                 width="20px"
                 height="20px"
@@ -36,11 +40,11 @@
         </TopTitle>
       </template>
       <template v-slot:main>
-        <NewTweet />
+        <NewTweet v-show="openTweet === false" />
       </template>
 
       <template v-slot:tweets>
-        <Tweets :tweetData="tweetData" />
+        <Tweets :tweetData="tweetData"/>
       </template>
     </TimeLine1>
     <div class="right">
@@ -50,6 +54,7 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 import Trends from '../components/Trends.vue';
 import NewTweet from '../components/NewTweet.vue';
 import TimeLine1 from '../components/TimeLine.vue';
@@ -162,6 +167,12 @@ export default {
           },
         ],
       }
+    },
+    computed: {
+      ...mapState(['openTweet']),
+    },
+    methods: {
+      ...mapMutations(['closeTweet']),
     }
 }
 </script>
@@ -201,6 +212,9 @@ export default {
   }
   .middle {
     overflow-y: auto;
+    .top-title {
+      border-bottom: none;
+    }
   }
   .right {
     overflow-y: auto;

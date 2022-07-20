@@ -36,7 +36,8 @@
 <script>
 import Slider from '../components/Slider.vue'
 export default {
-    name: 'SignIn',
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: 'Register',
     components: { Slider },
 }
 </script>

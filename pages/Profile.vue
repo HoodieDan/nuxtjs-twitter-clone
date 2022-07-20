@@ -4,12 +4,20 @@
       <template v-slot:topTitle>
         <TopTitle>
           <div class="top">
-            <span class="top-title">Osemu</span>
+            <div class="back">
+              <div v-show="openTweet" class="arrow" @click="closeTweet()">
+                <i class="fa-solid fa-arrow-left fa"></i>
+              </div>
+              <nuxt-link v-show="!openTweet" to="/">
+                <i class="fa-solid fa-arrow-left fa"></i>
+              </nuxt-link>
+            </div>
+            <span class="top-title">Drew</span>
           </div>
         </TopTitle>
       </template>
       <template v-slot:main>
-        <div class="profile">
+        <div class="profile" v-show="!openTweet">
             <div class="header">
                 <img src="https://pbs.twimg.com/profile_banners/859568844821721088/1646195193/1500x500" alt="header img">
             </div>
@@ -70,6 +78,7 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex';
 import Trends from '../components/Trends.vue';
 import TimeLine1 from '../components/TimeLine.vue';
 import TopTitle from '../components/TopTitle.vue';
@@ -109,6 +118,12 @@ export default {
                 },
             ]
         }
+    },
+    computed: {
+      ...mapState(['openTweet'])
+    },
+    methods: {
+      ...mapMutations(['closeTweet'])
     }
 }
 </script>
@@ -125,12 +140,15 @@ export default {
     padding: 0 16px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     cursor: pointer;
+    .fa {
+      color: #fff;
+    }
     .top-title {
       font-size: 19px;
       line-height: 24px;
       font-weight: 700;
+      margin-left: 50px;
     }
     .svg-top {
       width: 36px;

@@ -7,6 +7,9 @@
       <div class="col-lg-10 col-sm-10">
         <Nuxt />
       </div>
+    <!-- <div class="right col-lg-3 col-sm-3">
+      <Trends />
+    </div> -->
     </div>
   </div>
 </template>
@@ -22,6 +25,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+// @media (max-width: 1050px) {
+//   .right {
+//     display: none;
+//   }
+// }
+
 @media (min-width: 575px) {
   .col-sm-2 {
     display: flex;
@@ -32,6 +42,12 @@ export default {
   }
   .fixed {
   position: sticky;
+  }
 }
+
+@media (max-width: 415px) {
+  .col-sm-10, .col-sm-2 {
+    padding: 0;
+  }
 }
 </style>

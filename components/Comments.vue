@@ -1,20 +1,21 @@
 <template>
   <div class="root">
-    <div class="tweet" v-if="!openTweet">
-      <div class="tweets" v-for="(tweet, index) in tweetData" :key="index" @click="selectTweet(tweet)">
-        <div class="tweet-box">
+    <div class="comment">
+      <div class="comments" v-for="(comment, index) in commentData" :key="index">
+        <span class="text-center ml-5">Replying to <span class="blue">{{ username }}</span></span>
+        <div class="comment-box">
           <div class="left">
             <div class="pp circular">
-              <img :src="tweet.pp_route" alt="" />
+              <img src="../assets/img/pp.jpg" alt="profile image" />
             </div>
           </div>
           <div class="right">
             <div class="info">
               <div class="info__left">
                 <div class="name">
-                  <span>{{ tweet.name }}</span>
+                  <span>Drew</span>
                 </div>
-                <div class="badge" v-if="tweet.badge">
+                <div class="badge">
                   <svg
                     width="17px"
                     height="17px"
@@ -43,11 +44,11 @@
                   </svg>
                 </div>
                 <div class="username">
-                  <span> {{ tweet.username }} </span>
+                  <span> @the.7th.kind </span>
                 </div>
                 <div class="dot">·</div>
                 <div class="time">
-                  <span> {{ tweet.time }}</span>
+                  <span>{{ time }}</span>
                 </div>
               </div>
               <div class="info__right">
@@ -70,16 +71,16 @@
                 </svg>
               </div>
             </div>
-            <div class="tweet">
+            <div class="comment">
               <span>
-                {{ tweet.text }}
+                {{ comment.text }}
               </span>
             </div>
-            <div class="tweet-image" v-if="tweet.image_route !== false">
-              <img :src="tweet.image_route" alt="" />
-            </div>
+            <!-- <div class="comment-image" v-if="comment.image_route !== false">
+              <img :src="comment.image_route" alt="" />
+            </div> -->
             <div class="tools">
-              <div class="comment tools-item" @click="selectTweet(tweet)">
+              <div class="comment tools-item">
                 <div class="svg-box">
                   <svg
                     width="18px"
@@ -99,9 +100,9 @@
                     </g>
                   </svg>
                 </div>
-                <span> {{ tweet.comment }} </span>
+                <span> {{ comment.comment }} </span>
               </div>
-              <div class="re-tweet tools-item">
+              <div class="re-comment tools-item">
                 <div class="svg-box">
                   <svg
                     width="18px"
@@ -121,7 +122,7 @@
                     </g>
                   </svg>
                 </div>
-                <span> {{ tweet.retweet }} </span>
+                <span> {{ comment.retweet }} </span>
               </div>
               <div class="like tools-item">
                 <div class="svg-box">
@@ -143,7 +144,7 @@
                     </g>
                   </svg>
                 </div>
-                <span> {{ tweet.like }} </span>
+                <span> {{ comment.like }} </span>
               </div>
               <div class="share tools-item">
                 <div class="svg-box">
@@ -174,37 +175,51 @@
         </div>
       </div>
     </div>
-    <Post :tweet="selectedTweet" v-if="openTweet" />
   </div>
 </template>
 
 <script>
 import { mapMutations, mapState } from 'vuex';
-import Post from './Post.vue'
 
 
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
-    name: "Tweets",
+    name: "Comments",
     props: {
-        tweetData: Array
+        commentData: Array,
+        username: String
     },
     data() {
         return {
         };
     },
     computed: {
-      ...mapState(['openTweet', 'selectedTweet'])
+      ...mapState(['openTweet', 'selectedTweet']),
+      time () {
+        const d = new Date()
+        const hours = d.getHours()
+        const mins = d.getMinutes()
+        return `${hours}:${mins}`
+      }
     },
     methods: {
         ...mapMutations(['selectTweet'])
-    },
-    components: { Post }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-.tweet-box {
+.comments {
+    span.text-center {
+        font-size: 12px;
+        padding-top: 5px;
+        color: var(--text-color-profile);
+        .blue {
+            color: var(--blue);
+        }
+    }
+}
+.comment-box {
   width: 100%;
   display: flex;
   padding: 12px 16px;
@@ -305,7 +320,7 @@ export default {
     }
   }
 
-  .tweet {
+  .comment {
     height: auto;
     padding-right: 18px;
 
@@ -316,7 +331,7 @@ export default {
     }
   }
 
-  .tweet-image {
+  .comment-image {
     border-radius: 16px;
     width: 100%;
     overflow: hidden;
@@ -373,7 +388,7 @@ export default {
         }
       }
     }
-    .re-tweet:hover {
+    .re-comment:hover {
       span {
         color: var(--green);
       }
@@ -417,17 +432,17 @@ export default {
 }
 
 @media (max-width: 769px) {
-  .tweet-box .tools {
+  .comment-box .tools {
     width: 100%;
   }
 }
 
 @media (max-width: 569px) {
-  .tweet-box .right .info .info__left .username span {
+  .comment-box .right .info .info__left .username span {
     display: none;
   }
 
-  .tweet-box .tweet {
+  .comment-box .comment {
     padding-right: 0;
   }
 }

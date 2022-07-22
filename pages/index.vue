@@ -222,6 +222,7 @@ export default {
   }
   .right {
     overflow-y: auto;
+    max-width: 300px;
   }
 }
 

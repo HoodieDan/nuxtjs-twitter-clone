@@ -12,7 +12,8 @@
                 <i class="fa-solid fa-arrow-left fa"></i>
               </nuxt-link>
             </div>
-            <span class="top-title">Drew</span>
+            <span class="top-title" v-if="!openTweet">Drew</span>
+            <span class="top-title" v-if="openTweet">Tweet</span>
           </div>
         </TopTitle>
       </template>
@@ -182,6 +183,7 @@ export default {
   }
   .right {
     overflow-y: auto;
+    max-width: 300px;
   }
 }
 
@@ -325,6 +327,11 @@ export default {
 
 .active-link {
     border-bottom: var(--blue) 5px solid;
+
+    p {
+      color: var(--item-text-color) !important;
+      font-weight: 700 !important;
+    }
 }
 @media (max-width: 415px) {
   .top{

@@ -1,9 +1,11 @@
 <template>
   <div class="pp-and-tweet">
     <div class="pp-box">
-      <div class="pp">
-        <img src="../assets/img/pp.jpg" alt="" />
-      </div>
+      <nuxt-link to="/Profile" class="nuxt">
+        <div class="pp">
+          <img src="../assets/img/pp.jpg" alt="" />
+        </div>
+      </nuxt-link>
     </div>
 
     <div class="tweet">
@@ -165,7 +167,7 @@
               </g>
             </svg>
           </div>
-          <div class="item invisible">
+          <div class="item">
             <svg
               width="20px"
               height="20px"
@@ -349,9 +351,9 @@ export default {
   }
 }
 
-@media (max-width: 415px) {
-  .pp-and-tweet {
-    display: none;
-  }
-}
+// @media (max-width: 415px) {
+//   .pp-and-tweet {
+//     display: none;
+//   }
+// }
 </style>

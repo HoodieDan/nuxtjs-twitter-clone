@@ -1,3 +1,5 @@
+Fully responsive Nuxt JS Twitter clone with feed, profile and comment pages.
+
 # twitter-clone
 
 ## Build Setup

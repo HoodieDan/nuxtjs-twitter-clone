@@ -341,5 +341,10 @@ export default {
       right: 50px;
     }
   }
+  .profile {
+    .header {
+        height: 130px;
+    }
+  }
 }
 </style>

@@ -345,6 +345,10 @@ export default {
     .header {
         height: 130px;
     }
+    .circular {
+      width: 75px;
+      height: 75px;
+    }
   }
 }
 </style>
